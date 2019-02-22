@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "https://github.com/maxwashington/react-boilerplate.git",
   "author": "Max Washington",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
