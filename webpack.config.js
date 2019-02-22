@@ -1,34 +1,21 @@
-const path = require('path');
-
-const moduleObj = {
-    loaders: [
-        {
-            test: /\.js$/,
+module.exports = {
+    entry: './src/index.js',
+    module: {
+        rules: [{
+            test: /\.(js|jsx)$/,
             exclude: /node_modules/,
-            loaders: ["babel-loader"],
-        }
-    ],
-};
-const client = {
-    entry: {
-        'client': './src/client/index.js',
+            use: ['babel-loader']
+        }]
     },
-    target: 'web',
+    resolve: {
+        extensions: ['*', '.js', '.jsx']
+    },
     output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, 'dist/public')
+        path: __dirname + '/dist',
+        publicPath: '/',
+        filename: 'bundle.js'
     },
-    module: moduleObj
+    devServer: {
+        contentBase: './dist'
+    }
 };
-const server = {
-    entry: {
-        'server': './src/server/index.js'
-    },
-    target: 'node',
-    output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, 'dist')
-    },
-    module: moduleObj
-}
-module.exports = [client, server];
