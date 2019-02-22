@@ -7,9 +7,9 @@
   "author": "Max Washington",
   "license": "MIT",
   "scripts": {
-    "build": "yarn run build-server && yarn run build-client",
-    "build-server": "babel src/server --out-dir ./dist",
-    "build-client": "babel src/client --copy-files --out-dir ./dist/public",
+    "build-babel": "npm run build-babel-server && npm run build-babel-client",
+    "build-babel-server": "babel src/server --out-dir ./dist",
+    "build-babel-client": "babel src/client --copy-files --out-dir ./dist/public",
     "start": "node ./dist/index.js",
     "test": "jest ./src"
   },
@@ -21,6 +21,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "jest": "^24.1.0"
   }
 }
